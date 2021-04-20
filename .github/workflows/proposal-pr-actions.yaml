@@ -4,18 +4,20 @@ on:
   pull_request:
     types: [ready_for_review]
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+permissions:
+  pull-requests: write
+  repository-projects: write
 
 jobs:
   mark-rfc-proposals:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: srggrs/assign-one-project-github-action@1.2.1
+      - uses: alex-page/github-project-automation-plus@v0.5.1
         with:
           project: https://github.com/jonmeow/test/projects/1
-          column_name: RFC
+          column: RFC
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: RFC
