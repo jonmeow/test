@@ -15,7 +15,7 @@ jobs:
       - uses: srggrs/assign-one-project-github-action@1.2.1
         with:
           project: https://github.com/jonmeow/test/projects/1
-          column: RFC
+          column_name: RFC
       - uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: RFC
