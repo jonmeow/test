@@ -1,0 +1,19 @@
+name: Triage PRs leaving draft
+
+on:
+  pull_request:
+    types: [ready_for_review]
+
+job:
+  mark_rfc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: alex-page/github-project-automation-plus@v0.3.0
+        with:
+          project: Proposals
+          column: RFC
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: RFC
