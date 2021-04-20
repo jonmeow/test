@@ -28,6 +28,8 @@ jobs:
           project: https://github.com/jonmeow/test/projects/1
           column: RFC
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          ACTIONS_RUNNER_DEBUG: true
       - uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: RFC
