@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: alex-page/github-project-automation-plus@v0.3.0
+      - uses: alex-page/github-project-automation-plus@v0.5.1
         with:
-          project: Proposals
+          project: jonmeow/test/projects/1
           column: RFC
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions-ecosystem/action-add-labels@v1
