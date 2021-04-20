@@ -1,11 +1,11 @@
-name: Triage
+name: Mark RFC proposals
 
 on:
   pull_request:
     types: [ready_for_review]
 
-job:
-  rfc:
+jobs:
+  mark-rfc-proposals:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
