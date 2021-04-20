@@ -1,11 +1,11 @@
-name: Triage PRs leaving draft
+name: Triage
 
 on:
   pull_request:
     types: [ready_for_review]
 
 job:
-  mark_rfc:
+  rfc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
