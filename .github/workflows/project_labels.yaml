@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Label 
-      - uses: Matticusau/projectcard-autolabel@v1.0.0
+        uses: Matticusau/projectcard-autolabel@v1.0.0
         if: github.event.project_card.project_url == "https://api.github.com/projects/12283022"
         with:
           add-labels: >
