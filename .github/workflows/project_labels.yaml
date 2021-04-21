@@ -1,0 +1,15 @@
+name: Update project card label
+
+on:
+  project_card:
+    types: [created, moved]
+
+jobs:
+  update-project-card-label:
+    runs-on: ubuntu-latest:
+    steps:
+      - uses: hmarr/debug-action@v2
+      - name: Mark RFC
+        uses: andymckay/labeler@1.0.2
+        with:
+          add-labels: "rfc"
