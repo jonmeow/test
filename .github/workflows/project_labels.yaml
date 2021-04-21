@@ -18,4 +18,5 @@ jobs:
               {"column":"RFC", "add_labels": ["rfc"]},
               {"column":"Accepted", "remove_labels": ["rfc"]}
             ]
+          projectfilter-config: '{"include":["*"]}'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
