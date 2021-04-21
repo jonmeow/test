@@ -14,9 +14,9 @@ jobs:
         with:
           autolabel-config: >
             [
-              {"column":"Draft", "remove_labels": ["rfc"]},
-              {"column":"RFC", "add_labels": ["rfc"]},
-              {"column":"Accepted", "remove_labels": ["rfc"]}
+              {"column":"Draft", "remove_labels": ["RFC"]},
+              {"column":"RFC", "add_labels": ["RFC"]},
+              {"column":"Accepted", "remove_labels": ["RFC"]}
             ]
           projectfilter-config: '{"include":["*"]}'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
