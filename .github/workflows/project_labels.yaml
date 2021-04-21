@@ -6,7 +6,7 @@ on:
 
 jobs:
   update-project-card-label:
-    runs-on: ubuntu-latest:
+    runs-on: ubuntu-latest
     steps:
       - uses: hmarr/debug-action@v2
       - name: Mark RFC
