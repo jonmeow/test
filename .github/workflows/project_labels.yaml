@@ -1,15 +1,20 @@
-name: Update project card label
+name: Update label from project card
 
 on:
   project_card:
-    types: [created, moved]
+    types: [moved]
 
 jobs:
   update-project-card-label:
     runs-on: ubuntu-latest
     steps:
-      - uses: hmarr/debug-action@v2
-      - name: Mark RFC
-        uses: andymckay/labeler@1.0.2
+      - name: Label 
+      - uses: Matticusau/projectcard-autolabel@v1.0.0
+        if: github.event.project_card.project_url == "https://api.github.com/projects/12283022"
         with:
-          add-labels: "rfc"
+          add-labels: >
+            [
+              {"column":"Draft", "remove_labels": ["rfc"]},
+              {"column":"RFC", "add_labels": ["rfc"]},
+              {"column":"Accepted", "remove_labels": ["rfc"]},
+            ]
