@@ -10,7 +10,9 @@ jobs:
     steps:
       - name: Label 
         uses: Matticusau/projectcard-autolabel@v1.0.0
-        if: github.event.project_card.project_url == 'https://api.github.com/projects/12283022'
+        if:
+          github.event.project_card.project_url ==
+          'https://api.github.com/projects/12283022'
         with:
           autolabel-config: >
             [
