@@ -18,3 +18,4 @@ jobs:
               {"column":"Accepted", "remove_labels": ["rfc"]}
             ]
           projectfilter-config: '{"include":[12283022]}'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
