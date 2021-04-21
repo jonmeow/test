@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Label 
         uses: Matticusau/projectcard-autolabel@v1.0.0
+        if: github.event.project_card.project_url == 'https://api.github.com/projects/12283022'
         with:
           autolabel-config: >
             [
@@ -17,5 +18,4 @@ jobs:
               {"column":"RFC", "add_labels": ["rfc"]},
               {"column":"Accepted", "remove_labels": ["rfc"]}
             ]
-          projectfilter-config: '{"include":[12283022]}'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
