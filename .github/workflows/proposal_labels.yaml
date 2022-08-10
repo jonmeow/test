@@ -15,34 +15,34 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 
       - if: |
-          github.event.label.name == 'proposal: rfc'
+          github.event.label.name == 'proposal rfc'
         run: |
           gh pr edit "${PR}"
           --add-label "proposal"
-          --remove-label "proposal: accepted"
-          --remove-label "proposal: deferred"
+          --remove-label "proposal accepted"
+          --remove-label "proposal deferred"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.html_url }}
 
       - if: |
-          github.event.label.name == "proposal: accepted"
+          github.event.label.name == "proposal accepted"
         run: |
           gh pr edit "${PR}"
           --add-label "proposal"
-          --remove-label "proposal: rfc"
-          --remove-label "proposal: deferred"
+          --remove-label "proposal rfc"
+          --remove-label "proposal deferred"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.html_url }}
 
       - if: |
-          github.event.label.name == "proposal: deferred"
+          github.event.label.name == "proposal deferred"
         run: |
           gh pr edit "${PR}"
           --add-label "proposal"
-          --remove-label "proposal: rfc"
-          --remove-label "proposal: accepted"
+          --remove-label "proposal rfc"
+          --remove-label "proposal accepted"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.html_url }}
