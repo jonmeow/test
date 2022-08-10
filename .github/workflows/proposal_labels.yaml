@@ -17,9 +17,9 @@ jobs:
       - if: |
           github.event.label.name == 'proposal rfc'
         run: |
-          gh pr edit "${PR}"
-          --add-label "proposal"
-          --remove-label "proposal accepted"
+          gh pr edit "${PR}" \
+          --add-label "proposal" \
+          --remove-label "proposal accepted" \
           --remove-label "proposal deferred"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -28,9 +28,9 @@ jobs:
       - if: |
           github.event.label.name == 'proposal accepted'
         run: |
-          gh pr edit "${PR}"
-          --add-label "proposal"
-          --remove-label "proposal rfc"
+          gh pr edit "${PR}" \
+          --add-label "proposal" \
+          --remove-label "proposal rfc" \
           --remove-label "proposal deferred"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -39,9 +39,9 @@ jobs:
       - if: |
           github.event.label.name == 'proposal deferred'
         run: |
-          gh pr edit "${PR}"
-          --add-label "proposal"
-          --remove-label "proposal rfc"
+          gh pr edit "${PR}" \
+          --add-label "proposal" \
+          --remove-label "proposal rfc" \
           --remove-label "proposal accepted"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
