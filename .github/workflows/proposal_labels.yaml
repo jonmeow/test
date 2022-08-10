@@ -26,7 +26,7 @@ jobs:
           PR: ${{ github.event.pull_request.html_url }}
 
       - if: |
-          github.event.label.name == "proposal accepted"
+          github.event.label.name == 'proposal accepted'
         run: |
           gh pr edit "${PR}"
           --add-label "proposal"
@@ -37,7 +37,7 @@ jobs:
           PR: ${{ github.event.pull_request.html_url }}
 
       - if: |
-          github.event.label.name == "proposal deferred"
+          github.event.label.name == 'proposal deferred'
         run: |
           gh pr edit "${PR}"
           --add-label "proposal"
