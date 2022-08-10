@@ -1,16 +1,26 @@
-name: Respond to ready for review
-
+name: Comment when opened
 on:
   pull_request:
-    types: [labeled]
+    types:
+      - ready_for_review
 
 jobs:
-  update-project-column:
+  updateLabels:
     runs-on: ubuntu-latest
     steps:
-      - name: Update project column
-        uses: jonmeow/action-update-project@main
-        with:
-          project_url: https://github.com/jonmeow/test/projects/1
-          column_name: RFC
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Dump GitHub context
+        run: |
+          echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+
+      - name: rfc
+        run: |
+          echo 1
+          #gh pr edit "${PR}" \
+          #  --remove-label "proposal accepted" \
+          #  --remove-label "proposal deferred" \
+          #  --add-label "proposal"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.html_url }}
