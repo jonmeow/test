@@ -5,7 +5,8 @@ on:
       - ready_for_review
 
 jobs:
-  updateLabels:
+  proposalRfc:
+    if: contains(github.event.pull_request.labels.*.name, 'proposal')
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -16,11 +17,11 @@ jobs:
 
       - name: rfc
         run: |
-          echo 1
-          #gh pr edit "${PR}" \
-          #  --remove-label "proposal accepted" \
-          #  --remove-label "proposal deferred" \
-          #  --add-label "proposal"
+          gh pr edit "${PR}" \
+            --remove-label "proposal accepted" \
+            --remove-label "proposal deferred" \
+            --add-label "proposal"
+            --add-label "proposal rfc"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.html_url }}
