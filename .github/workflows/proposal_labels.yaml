@@ -17,6 +17,7 @@ jobs:
       - if: github.event.label.name == "proposal: rfc"
         run: |
           gh pr edit "${PR}"
+          --add-label "proposal"
           --remove-label "proposal: accepted"
           --remove-label "proposal: deferred"
         env:
@@ -26,6 +27,7 @@ jobs:
       - if: github.event.label.name == "proposal: accepted"
         run: |
           gh pr edit "${PR}"
+          --add-label "proposal"
           --remove-label "proposal: rfc"
           --remove-label "proposal: deferred"
         env:
@@ -35,6 +37,7 @@ jobs:
       - if: github.event.label.name == "proposal: deferred"
         run: |
           gh pr edit "${PR}"
+          --add-label "proposal"
           --remove-label "proposal: rfc"
           --remove-label "proposal: accepted"
         env:
